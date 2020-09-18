@@ -8,10 +8,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// app.use(require('./routes'));
+app.use(require('./routes'));
 
 // tells Mongoose which database to connect to
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-media-backend', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-backend', {
   useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
