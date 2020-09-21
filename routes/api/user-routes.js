@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+// import methods from user-controller
 const {
   getAllUsers,
   getUserById,
@@ -29,4 +30,5 @@ router
   .post(addFriend)
   .put(removeFriend);
 
+// export methods to index
 module.exports = router;

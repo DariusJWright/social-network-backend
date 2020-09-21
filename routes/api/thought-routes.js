@@ -1,13 +1,17 @@
 const router = require('express').Router();
 
+// import methods from thought-controller
 const {
   getAllThoughts,
   getThoughtById,
   createThought,
   updateThought,
-  deleteThought
+  deleteThought,
+  createReaction,
+  deleteReaction
 } = require('../../controllers/thought-controller');
 
+// Thought routes
 // create at /api/thoughts/:userId
 router.route('/:userId').post(createThought);
 
@@ -27,9 +31,7 @@ router
   .route('/:userId/:thoughtId')
   .delete(deleteThought);
 
-// reaction routes
-const { createReaction, deleteReaction } = require('../../controllers/thought-controller');
-
+// Reaction routes
 // create reaction at /api/thoughts/:thoughtId/reactions
 router
   .route('/:thoughtId/reactions')
@@ -39,4 +41,6 @@ router
 router
   .route('/:thoughtId/reactions/:reactionId')
   .delete(deleteReaction);
-  module.exports = router;
+
+// export methods to index
+module.exports = router;
